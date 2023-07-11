@@ -3,6 +3,9 @@ import "./App.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import IniciarSesion from "./componentes/login";
+import LoginForm from "./componentes/form";
+<link rel="stylesheet" href="./App.css" />
 
 function App() {
   return (
@@ -14,11 +17,12 @@ function App() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#home">Inicio</Nav.Link>
-              <Nav.Link href="#link">Iniciar Sesion</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {/* <IniciarSesion></IniciarSesion> */}
+      <LoginForm></LoginForm>
     </div>
   );
 }
