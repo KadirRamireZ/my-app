@@ -5,10 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import LoginPage from "../src/pages/Login";
 import HomePage from "../src/pages/Home";
+import ProfilePage from "./pages/ProfilePage";
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
+  const [userProfile, setUserProfile] = useState(null);
 
   const handleLogin = (username) => {
     setIsLoggedIn(true);
@@ -18,6 +21,11 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUsername('');
+    setUserProfile(null);
+  };
+
+  const handleUserProfile = (profileData) => {
+    setUserProfile(profileData);
   };
 
   return (
@@ -34,6 +42,11 @@ function App() {
                     Ingresar
                   </Nav.Link>
                 )}
+                {isLoggedIn && (
+                  <Nav.Link as={Link} to="/profile">
+                    Perfil
+                  </Nav.Link>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -41,9 +54,18 @@ function App() {
 
         <Routes>
           {!isLoggedIn ? (
-            <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+            <Route path="/login" element={<LoginPage onLogin={handleLogin} onUserProfile={handleUserProfile} />} />
           ) : (
-            <Route path="/home" element={<HomePage username={username} onLogout={handleLogout} />} />
+            <>
+              <Route
+                path="/home"
+                element={<HomePage username={username} onLogout={handleLogout} />}
+              />
+              <Route
+                path="/profile"
+                element={<ProfilePage {...userProfile} />}
+              />
+            </>
           )}
         </Routes>
       </Router>

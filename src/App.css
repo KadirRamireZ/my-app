@@ -1,1 +1,51 @@
+.App {
+  text-align: center;
+}
 
+#contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Navbar {
+  background-color: #f8f9fa;
+}
+
+.Navbar.Brand {
+  font-weight: bold;
+}
+
+.Navbar.Collapse {
+  justify-content: flex-end;
+}
+
+.Navbar.Nav a {
+  margin-left: 10px;
+}
+
+.ProfilePage {
+  text-align: center;
+}
+
+.ProfilePage h2 {
+  margin-bottom: 20px;
+}
+
+.ProfilePage .profile-info {
+  margin-bottom: 20px;
+}
+
+.ProfilePage .profile-info p {
+  margin: 5px;
+}
+
+.ProfilePage .profile-image {
+  margin-bottom: 20px;
+}
+
+.ProfilePage .profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
